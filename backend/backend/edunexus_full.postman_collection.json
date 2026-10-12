@@ -1,0 +1,154 @@
+{
+    "info": {
+      "name": "Edunexus API Full",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Register User",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/users/" },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"ali\",\n  \"email\": \"ali@example.com\",\n  \"password\": \"mypassword123\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Login User",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/token/" },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"ali\",\n  \"password\": \"mypassword123\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Refresh Token",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/token/refresh/" },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"refresh\": \"<refresh_token>\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get Users (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/users/" }
+        }
+      },
+      {
+        "name": "Get User Detail (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/users/1/" }
+        }
+      },
+      {
+        "name": "Get Applications (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/applications/" }
+        }
+      },
+      {
+        "name": "Create Application (Protected)",
+        "request": {
+          "method": "POST",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" },
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "url": { "raw": "http://127.0.0.1:8000/api/applications/" },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"user\": 1,\n  \"dob\": \"2000-01-01\",\n  \"cnic\": \"12345-6789012-3\",\n  \"status\": \"Pending\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get Application Detail (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/applications/1/" }
+        }
+      },
+      {
+        "name": "Get Documents (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/documents/" }
+        }
+      },
+      {
+        "name": "Create Document (Protected)",
+        "request": {
+          "method": "POST",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" },
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "url": { "raw": "http://127.0.0.1:8000/api/documents/" },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"application\": 1,\n  \"doc_type\": \"CNIC\",\n  \"file_path\": \"uploads/cnic.png\",\n  \"verification_status\": \"Manual Review\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get Document Detail (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/documents/1/" }
+        }
+      },
+      {
+        "name": "Get FAQs (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/faqs/" }
+        }
+      },
+      {
+        "name": "Create FAQ (Protected)",
+        "request": {
+          "method": "POST",
+          "header": [
+            { "key": "Authorization", "value": "Bearer <access_token>" },
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "url": { "raw": "http://127.0.0.1:8000/api/faqs/" },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"question\": \"What is admission deadline?\",\n  \"answer\": \"30 Sept 2026\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get FAQ Detail (Protected)",
+        "request": {
+          "method": "GET",
+          "header": [{ "key": "Authorization", "value": "Bearer <access_token>" }],
+          "url": { "raw": "http://127.0.0.1:8000/api/faqs/1/" }
+        }
+      }
+    ]
+  }
+  
